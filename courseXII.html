@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectors Coaching Centre</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle/3.03/jquery.cycle.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"> -->
+  
+  <script src="new.js"></script>
+  </head>
+  <body>
+
+    <header class="header-area">
+        <!-- site-navbar start -->
+        <div class="navbar-area">
+          <div class="container">
+            <nav class="site-navbar">
+              <!-- site logo -->
+              <a href="#home" class="site-logo" ><img src="logo.png.png" alt=""width="55px" height="55px"></a>
+      
+              <!-- site menu/nav -->
+              <ul>
+                <li><a  href="testing2.html">HOME</a></li>
+                <li><a class="acti" style="color: #1abc9c;" href="coursegallery.html">COURSEs</a></li>
+                <li><a href="teachergallery.html">TEACHER</a></li>
+                <li><a href="student.html">STUDENTS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+              </ul>
+      
+              <!-- nav-toggler for mobile version only -->
+              <button class="nav-toggler">
+                <span></span>
+              </button>
+            </nav>
+          </div>
+        </div><!-- navbar-area end -->
+      
+        <!-- <div class="intro-area">
+          <div class="container">
+            <h2>Responsive Navbar with pure JavaScript</h2>
+            <p>Please resize your browser and see the result</p>
+          </div>
+        </div> -->
+      </header>
+      <script>// define all UI variable
+        const navToggler = document.querySelector('.nav-toggler');
+        const navMenu = document.querySelector('.site-navbar ul');
+        const navLinks = document.querySelectorAll('.site-navbar a');
+        
+        // load all event listners
+        allEventListners();
+        
+        // functions of all event listners
+        function allEventListners() {
+          // toggler icon click event
+          navToggler.addEventListener('click', togglerClick);
+          // nav links click event
+          navLinks.forEach( elem => elem.addEventListener('click', navLinkClick));
+        }
+        
+        // togglerClick function
+        function togglerClick() {
+          navToggler.classList.toggle('toggler-open');
+          navMenu.classList.toggle('open');
+        }
+        
+        // navLinkClick function
+        function navLinkClick() {
+          if(navMenu.classList.contains('open')) {
+            navToggler.click();
+          }
+        }</script>
+     <style>
+      /* General styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background-color: #f9f9f9;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header styles */
+    .header-area {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+    
+    .site-navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .site-logo img {
+      display: block;
+      height: 55px;
+      width: 55px;
+    }
+    
+    .site-navbar ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    .site-navbar ul li {
+      margin-right: 15px;
+    }
+    
+    .site-navbar ul li:last-child {
+      margin-right: 0;
+    }
+    
+    .site-navbar ul li a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+    
+    .site-navbar ul li a:hover {
+      color: #1abc9c;
+    }
+    
+    .nav-toggler {
+      display: none;
+    }
+    /* Media query for screens up to 768px */
+    @media (max-width: 768px) {
+      .site-navbar ul {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        background-color: #fff;
+        padding: 15px 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    
+      .site-navbar ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    
+      .site-navbar ul li:last-child {
+        margin-bottom: 0;
+      }
+    
+      .site-navbar .nav-toggler {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    
+      .site-navbar .nav-toggler span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        border-radius: 2px;
+        position: relative;
+        transition: transform 0.2s ease-in-out;
+      }
+    
+      .site-navbar .nav-toggler span:before,
+      .site-navbar .nav-toggler span:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 2px;
+        transition: transform 0.2s ease-in-out;
+      }
+    
+      .site-navbar .nav-toggler span:before {
+        transform: translateY(-8px);
+      }
+    
+      .site-navbar .nav-toggler span:after {
+        transform: translateY(8px);
+      }
+    
+      .site-navbar .nav-toggler.toggler-open span {
+        transform: rotate(45deg);
+      }
+    
+      .site-navbar .nav-toggler.toggler-open span:before {
+        transform: translateY(0) rotate(45deg);
+      }
+    
+      .site-navbar .nav-toggler.toggler-open span:after {
+        transform: translateY(0) rotate(-45deg);
+      }
+    
+      .site-navbar ul.open {
+        display: flex;
+      }
+    }
+    /* Media query for screens up to 576px */
+/* @media (max-width: 576px) {
+  .site-navbar ul {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff;
+    padding: 15px 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .site-navbar ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .site-navbar ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  .site-navbar .nav-toggler {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .site-navbar .nav-toggler span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .site-navbar .nav-toggler span:before,
+  .site-navbar .nav-toggler span:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    transform: translateY(-6px);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .site-navbar .nav-toggler span:after {
+    transform: translateY(6px);
+  }
+
+  .site-navbar .nav-toggler.toggler-open span {
+    transform: rotate(45deg);
+  }
+
+  .site-navbar .nav-toggler.toggler-open span:before {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  .site-navbar .nav-toggler.toggler-open span:after {
+    transform: translateY(0) rotate(-45deg);
+  }
+}
+
+    @media (max-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .site-navbar ul {
+    padding: 0;
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: #fff;
+    opacity: 0.95;
+    transition: all 0.3s ease-in-out;
+    z-index: 99;
+  }
+
+  .site-navbar ul.open {
+    left: 0;
+    opacity: 1;
+  }
+
+  .site-navbar ul li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .site-navbar ul li a {
+    color: #333;
+    display: block;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .site-navbar ul li a:hover {
+    color: #1abc9c;
+    background-color: #f9f9f9;
+  }
+
+  .nav-toggler {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  .nav-toggler span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .nav-toggler span:before,
+  .nav-toggler span:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    border-radius: 2px;
+    position: absolute;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .nav-toggler span:before {
+    transform: translateY(-6px);
+  }
+
+  .nav-toggler span:after {
+    transform: translateY(6px);
+  }
+
+  .nav-toggler.toggler-open span {
+    transform: rotate(45deg);
+  }
+
+  .nav-toggler.toggler-open span:before {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  .nav-toggler.toggler-open span:after {
+    transform: translateY(0) rotate(-45deg);
+  }
+} */
+
+     </style>
+<div class="mar">
+    <marquee style="background-color: black; color: white;  font-size: 28px; font-weight: 600; margin-top: 20px;height: 40px; " width = "100%" > Alert message will be display here as a head line</marquee>
+
+</div>
+<style>
+    .mar{
+        padding-top: 70px;
+    }
+    @media (max-width: 768px) {
+    .mar{
+        width: 100%;
+    }
+    
+    }
+</style>
+
+<section id="hero">
+    <div>
+        <form class="form">
+            <p class="title">Register form for XII </p>
+            
+                <div class="flex">
+                <label>
+                    <input required="" placeholder="" type="text" class="input">
+                    <span>Firstname</span>
+                </label>
+        
+                <label>
+                    <input required="" placeholder="" type="text" class="input">
+                    <span>Lastname</span>
+                </label>
+            </div>  
+                    
+            <label>
+                <input required="" placeholder="" type="email" class="input">
+                <span>Email</span>
+            </label> 
+                
+            <label>
+                <input required="" placeholder="" type="text" class="input">
+                <span>phone number</span>
+            </label>
+            <label>
+                <input required="" placeholder="" type="text" class="input">
+                <span>program</span>
+            </label>
+            <label>
+                <select id="cars" name="" class="input" >
+                   
+                    <option value="volvo"></option>
+                    <option value="saab">computer science</option>
+                    <option value="fiat">pre-engnerring</option>
+                    <option value="audi">pre-medical</option>
+                  </select>
+                  <span>select course</span>
+            </label>
+            
+            <button class="submit">Submit</button>
+          
+        </form>
+    </div>
+  <div>
+    <!-- <img src="logo.png.png" width="350px" height="350px" alt=""> -->
+    <h1 style="font-size: 60px;">Registration for XII</h1>
+    <h1>Pre-Engineering <br>
+        Pre-Medical <br>
+        Computer Science <br></h1>
+    <h2>Vector Coching center </h2>
+    <!-- <h1>On ALL PRODUCT</h1> -->
+    <!-- <i style="font-size:24px" class="fa">&#xf095;</i> -->
+    <p>  (021) 34110147</p>
+    <!-- <button>Shop Now</button> -->
+</div>
+
+    
+  </section>
+  <style>
+    .form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: #515151;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.title {
+  font-size: 28px;
+  color: black;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: black;
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: black;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.message, .signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: royalblue;
+}
+
+.signin a:hover {
+  text-decoration: underline royalblue;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: green;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  background-color:rgb(32, 33, 36);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: black;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+#hero{
+    background-image: url("course-background-image.jpg");
+    height: 90vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top 15% right 0;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: row;
+    align-items:center ;
+    justify-content: space-evenly;
+}
+#hero h1{
+
+padding-bottom: 15px;
+color: #fff;
+}
+#hero p{
+    font-size: 1rem;
+    color: #fff;
+}
+#hero h2{
+color: #fff;
+
+}
+/* #hero button{
+background-image: url("img/button.png");
+background-color: transparent;
+color: #088178;
+border: 0;
+padding: 14px 80px  14px 65px;
+background-repeat: no-repeat;
+cursor: pointer;
+font-weight: 700;
+font-size: 15px; 
+} */
+@media only screen and (max-width: 768px) {
+  #hero {
+    padding: 0 30px;
+    align-items: center;
+    justify-content: center;
+  }
+  #hero h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  #hero p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  #hero h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  #hero button {
+    padding: 12px 60px 12px 45px;
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  #hero {
+    padding: 0 20px;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+  }
+  #hero h1 {
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  #hero p {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+  #hero h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  #hero button {
+    padding: 10px 50px 10px 35px;
+    font-size: 12px;
+  }
+}
+/* For devices with a maximum width of 768px */
+@media only screen and (max-width: 768px) {
+  #hero {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  #hero > div:first-child {
+    margin-bottom: 30px;
+  }
+}
+
+/* For devices with a maximum width of 480px */
+@media only screen and (max-width: 480px) {
+  .form {
+    max-width: 100%;
+  }
+}
+
+  </style>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <h3>About Us</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna quis dolor gravida ullamcorper. Donec vitae nisl a lorem faucibus fringilla.</p>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <h3>Contact Us</h3>
+          <p>123 Main St, City</p>
+          <p>Phone: +1234567890</p>
+          <p>Email:<a href="mailto:syedaliahsan2002@gmail.com" style="text-decoration: none; color: #101010;"></i>syedaliahsan2002gmail.com</a>
+          </p>
+          
+        </div>
+        
+      </div>
+      <div class="social-media-icons">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+        <ul class="social-ul">
+          <li class="socail-li">
+            <a href="#">
+              <i class="fab fa-facebook-f icon"></i>    </a>
+          </li>
+          <li class="socail-li">
+            <a href="#"><i class="fab fa-twitter icon"></i></a>
+          </li>
+          <li class="socail-li">
+            <a href="#"><i class="fab fa-linkedin-in icon"></i></a></li>
+          <li>
+            <a href="#"><i class="fab fa-google-plus-g icon"></i></a></li>
+        </ul>
+                                 
+    </div>
+    </div>
+    <div class="copy">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <p>&copy; 2023 Educational Institute. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </footer>
+  <style>
+    footer {
+        background-color: #f1f1f1;
+        padding: 50px 0;
+    }
+  
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+  
+    h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+  
+    p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #666;
+    }
+  
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+  
+    ul li {
+        margin-bottom: 10px;
+    }
+  
+    ul li a {
+        color: #333;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    ul li a:hover{
+      color: #1abc9c;
+      transition: all 0.5s ;
+    }
+    .copy {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+  
+    .copy p {
+        margin: 0;
+        color: #cccaca;
+    }
+  
+    .social-ul {
+        display: flex;
+        position: relative;
+        margin-top: 50px;
+        margin-left: 23.9vw;
+        transform: translate(-50%, -50%);
+    }
+  
+    .social-ul li {
+        list-style: none;
+    }
+  
+    .social-ul li a {
+        width: 55px;
+        height: 55px;
+        background-color: #fff;
+        text-align: center;
+        line-height: 80px;
+        font-size: 35px;
+        margin: 0 10px;
+        display: block;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        border: 3px solid #fff;
+        z-index: 1;
+    }
+  
+    .social-ul li a .icon {
+        position: relative;
+        color: #262626;
+        transition: .5s;
+        z-index: 3;
+    }
+  
+    .social-ul li a:hover .icon {
+        color: #fff;
+        transform: rotateY(360deg);
+    }
+  
+    .social-ul li a:before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f00;
+        transition: .5s;
+        z-index: 2;
+    }
+  
+    .social-ul li a:hover:before {
+        top: 0;
+    }
+  
+    .social-ul li:nth-child(1) a:before{
+        background: #3b5999;
+    }
+  
+    .social-ul li:nth-child(2) a:before{
+        background: #55acee;
+    }
+  
+    .social-ul li:nth-child(3) a:before{
+        background: #0077b5;
+    }
+  
+    .social-ul li:nth-child(4) a:before{
+        background: #dd4b39;
+    }
+  
+    /* Media Queries */
+  
+    @media only screen and (max-width: 767px) {
+  .container {
+    max-width: 90%;
+  }
+  
+  /* .social-ul {
+    margin-left: auto;
+    margin-right: auto;
+  } */
+  
+  .social-ul li a {
+    width: 40px;
+    height: 40px;
+    line-height: 60px;
+    font-size: 25px;
+    margin: 0 5px;
+    border: 2px solid #fff;
+  }
+  
+  .social-ul li a .icon {
+    font-size: 20px;
+  }
+  }
+  </style>
+  

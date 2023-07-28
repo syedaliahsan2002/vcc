@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectors Coaching Centre</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle/3.03/jquery.cycle.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <!-- footer libery -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- footer libery -->
+  <script src="new.js"></script>
+  </head>
+  <body>
+
+    <header class="header-area">
+        <!-- site-navbar start -->
+        <div class="navbar-area">
+          <div class="container">
+            <nav class="site-navbar">
+              <!-- site logo -->
+              <a href="#home" class="site-logo" ><img src="logo.png.png" alt=""width="55px" height="55px"></a>
+      
+              <!-- site menu/nav -->
+              <ul>
+                <li><a class="acti" style="color: #1abc9c;" href="#hero">hHOME</a></li>
+                <li><a href="coursegallery.html">COURSE</a></li>
+                <li><a href="#teach">TEACHERS</a></li>
+                <li><a href="#testimonial">STUDENTS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+              </ul>
+      
+              <!-- nav-toggler for mobile version only -->
+              <button class="nav-toggler">
+                <span></span>
+              </button>
+            </nav>
+          </div>
+        </div><!-- navbar-area end -->
+      
+        <!-- <div class="intro-area">
+          <div class="container">
+            <h2>Responsive Navbar with pure JavaScript</h2>
+            <p>Please resize your browser and see the result</p>
+          </div>
+        </div> -->
+      </header>
+      <script>// define all UI variable
+        const navToggler = document.querySelector('.nav-toggler');
+        const navMenu = document.querySelector('.site-navbar ul');
+        const navLinks = document.querySelectorAll('.site-navbar a');
+        
+        // load all event listners
+        allEventListners();
+        
+        // functions of all event listners
+        function allEventListners() {
+          // toggler icon click event
+          navToggler.addEventListener('click', togglerClick);
+          // nav links click event
+          navLinks.forEach( elem => elem.addEventListener('click', navLinkClick));
+        }
+        
+        // togglerClick function
+        function togglerClick() {
+          navToggler.classList.toggle('toggler-open');
+          navMenu.classList.toggle('open');
+        }
+        
+        // navLinkClick function
+        function navLinkClick() {
+          if(navMenu.classList.contains('open')) {
+            navToggler.click();
+          }
+        }</script>
+     <style>
+      /* General styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background-color: #f9f9f9;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header styles */
+    .header-area {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+    
+    .site-navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .site-logo img {
+      display: block;
+      height: 55px;
+      width: 55px;
+    }
+    
+    .site-navbar ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    .site-navbar ul li {
+      margin-right: 15px;
+    }
+    
+    .site-navbar ul li:last-child {
+      margin-right: 0;
+    }
+    
+    .site-navbar ul li a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+    
+    .site-navbar ul li a:hover {
+      color: #1abc9c;
+    }
+    
+    .nav-toggler {
+      display: none;
+    }
+    /* Media query for screens up to 768px */
+    @media (max-width: 768px) {
+      .site-navbar ul {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        background-color: #fff;
+        padding: 15px 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    
+      .site-navbar ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    
+      .site-navbar ul li:last-child {
+        margin-bottom: 0;
+      }
+    
+      .site-navbar .nav-toggler {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    
+      .site-navbar .nav-toggler span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        border-radius: 2px;
+        position: relative;
+        transition: transform 0.2s ease-in-out;
+      }
+    
+      .site-navbar .nav-toggler span:before,
+      .site-navbar .nav-toggler span:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 2px;
+        transition: transform 0.2s ease-in-out;
+      }
+    
+      .site-navbar .nav-toggler span:before {
+        transform: translateY(-8px);
+      }
+    
+      .site-navbar .nav-toggler span:after {
+        transform: translateY(8px);
+      }
+    
+      .site-navbar .nav-toggler.toggler-open span {
+        transform: rotate(45deg);
+      }
+    
+      .site-navbar .nav-toggler.toggler-open span:before {
+        transform: translateY(0) rotate(45deg);
+      }
+    
+      .site-navbar .nav-toggler.toggler-open span:after {
+        transform: translateY(0) rotate(-45deg);
+      }
+    
+      .site-navbar ul.open {
+        display: flex;
+      }
+    }
+     </style>
+<div class="mar">
+    <marquee style="background-color: black; color: white;  font-size: 28px; font-weight: 600; margin-top: 20px;height: 40px; " width = "100%" > Alert message will be display here as a head line</marquee>
+
+</div>
+<style>
+    .mar{
+        padding-top: 70px;
+    }
+    @media (max-width: 768px) {
+    .mar{
+        width: 100%;
+    }
+    
+    }
+</style>
+    <section id="hero">
+      <div class="hero-content">
+        <img id="logo-img " src="logo.png.png" width="350px" height="350px" alt="">
+        <div class="hero-text">
+          <h4>Vectors Coaching Centre</h4>
+          <h2>Model Colony Campus</h2>
+          <p id="page">(021) 34110147</p>
+        </div>
+      </div>
+      <div class="slider-wrapper">
+        <div id="slide-show" class="slider" >
+          <p><img class="slide" src="img1.jpg" width="700px" height="500px"></p>
+          <p><img class="slide" src="img2.jpg"width="700px" height="500px"></p>
+          <p ><img class="slide" src="img3.jpg"width="700px" height="500px"></p>
+        </div>
+      </div>
+      
+     
+    </section>
+    <!-- hero section close -->
+    <style>
+        /* Hero section styles */
+        #hero {
+          background-image: url("back.jpg");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          height: 80vh;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: row;
+          padding: 0 9%;
+        }
+        
+        #hero h4 {
+          font-size: 48px;
+          color: white;
+          margin-top: 0;
+        }
+        
+        #hero h2 {
+          font-size: 36px;
+          color: white;
+          margin-top: 0;
+        }
+        
+        #hero p {
+          font-size: 24px;
+          color: white;
+          margin: 0;
+        }
+        
+        #slide-show {
+          margin-right: 50px;
+          width: 40%;
+        }
+        
+        /* Responsive styles */
+      /* Responsive styles */
+      @media only screen and (max-width: 480px) {
+  #hero img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hero-content {
+    padding-top: 50px;
+  }
+
+  #hero {
+    /* margin-left: -34vw; */
+    width: 100%;
+    height: 160vh;
+    background-position: top center;
+    padding: 0 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #hero h4 {
+    font-size: 26px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+
+  #hero h2 {
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+  }
+
+  #hero p {
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+
+  #slide-show {
+    height: auto;
+    width: 100%;
+    max-height: 400px;
+    /* margin: 0 auto; */
+  }
+
+  .slide {
+    max-height: 400px;
+  }
+}
+
+/* Small devices (landscape phones) */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  #hero img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero-content {
+    padding-top: 100px;
+  }
+
+  #hero {
+    width: 165vw;
+    height: 160vh;
+    background-position: top center;
+    padding: 0 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #hero h4 {
+    font-size: 30px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+
+  #hero h2 {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+  }
+
+  #hero p {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+
+  #slide-show {
+    height: auto;
+    width: 60%;
+    max-height: 500px;
+    margin: 0 auto;
+  }
+
+  .slide {
+    height: auto;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    max-height: 500px;
+  }
+}
+
+/* Medium devices (tablets) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #hero {
+    width: 160vw;
+    height: 60vh;
+    padding: 0 5%;
+  }
+
+  #hero h4 {
+    font-size: 36px;
+  }
+
+  #hero h2 {
+    font-size: 30px;
+  }
+
+  #hero p {
+    font-size: 20px;
+  }
+
+  #slide-show {
+    margin-right: 20px;
+    width: 50%;
+  }
+
+  .slide {
+    max-height: 400px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #hero {
+    width: 100vw;
+    height: 80vh;
+    padding: 0 10%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-position: center;
+  }
+
+  #hero h4 {
+    font-size: 48px;
+  }
+
+  #hero h2 {
+    font-size: 36px;
+  }
+
+  #hero p {
+    font-size: 24px;
+  }
+
+  #slide-show {
+    margin-right: 50px;
+    width: 40%;
+  }
+
+  .slide {
+    max-height: 500px;
+  }
+}
+
+
+      </style>
+      <section>
+        <div>
+          <h1 style="text-align: center; font-size: 30px; padding-top: 20px; padding-bottom: 20px;" >COURSES </h1>
+            <!-- <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                  <symbol id="icon-cross" viewBox="0 0 32 32">
+                    <title>close</title>
+                    <path d="M31.7 25.7L22 16l9.7-9.7a1 1 0 0 0 0-1.4L27.1.3a1 1 0 0 0-1.4 0L16 10 6.3.3a1 1 0 0 0-1.4 0L.3 4.9a1 1 0 0 0 0 1.4L10 16 .3 25.7a1 1 0 0 0 0 1.4l4.6 4.6a1 1 0 0 0 1.4 0L16 22l9.7 9.7a1 1 0 0 0 1.4 0l4.6-4.6a1 1 0 0 0 0-1.4z"/>
+                  </symbol>
+                </defs>
+              </svg> -->
+              
+              <div class="page" data-modal-state="closed"  >
+                <div class="container" >
+                  <div class="card-slider" >
+                    
+                      <div class="card-wrapper" >
+                        <a href="course.html" target="_blank" style="text-decoration: none; color: black; ">  <article class="card">
+                      <picture class="card__background">
+                        <img src="img1.jpg" style="background-size: cover; background-repeat: no-repeat;  " width="400" height="400px">
+                      </picture> 
+                     
+                      <h3 class="card__title" style="margin-left: 10px; font-weight: 900;">first year</h3>
+                      
+                      <div class="card__duration" style="margin-left: 10px; font-size: 20px;" >
+                      <p style="color: black; font-weight: 500;"> pre-engearring <br> pre-mediacal <br> computer-science/Commerce</p>
+                      </div>
+                      </article></a></div>
+                      <div class="card-wrapper" >
+                        <a href="courseXII.html" target="_blank" style="text-decoration: none; color: black; ">  <article class="card">
+                      <picture class="card__background">
+                        <img src="img2.jpg" style="background-size: cover; background-repeat: no-repeat;  " width="400" height="400px">
+                      </picture> 
+                     
+                      <h3 class="card__title" style="margin-left: 10px;  font-weight: 900;">secand year</h3>
+                      
+                      <div class="card__duration" style="margin-left: 10px; font-size: 20px;" >
+                        <p style="color: black;font-weight: 500;"> pre-engearring <br> pre-mediacal <br> computer-science/Commerce</p>
+                      </div>
+                      </article></a></div>
+                      <div class="card-wrapper" >
+                        <a href="courseIX.html" target="_blank" style="text-decoration: none; color: black; ">  <article class="card">
+                      <picture class="card__background">
+                        <img src="img3.jpg" style="background-size: cover; background-repeat: no-repeat;  " width="400" height="400px">
+                      </picture> 
+                     
+                      <h3 class="card__title" style="margin-left: 10px;  font-weight: 900;">nine</h3>
+                      
+                      <div class="card__duration" style="margin-left: 10px; font-size: 20px;" >
+                        <p style="color: black;font-weight: 500;">biology <br><br> computer-science</p>
+                      </div>
+                      </article></a></div>
+                      <div class="card-wrapper" >
+                        <a href="courseX.html" target="_blank" style="text-decoration: none; color: black; ">  <article class="card">
+                      <picture class="card__background">
+                        <img src="img1.jpg" style="background-size: cover; background-repeat: no-repeat;  " width="400" height="400px">
+                      </picture> 
+                     
+                      <h3 class="card__title" style="margin-left: 10px;  font-weight: 900;">matric</h3>
+                      
+                      <div class="card__duration" style="margin-left: 10px; font-size: 20px;" >
+                        <p style="color: black;font-weight: 500;"> biology<br> <br> computer-science </p>
+                      </div>
+                      </article></a></div>
+                      <div class="card-wrapper" >
+                        <a href="coursejuni.html" target="_blank" style="text-decoration: none; color: black; ">  <article class="card">
+                      <picture class="card__background">
+                        <img src="img2.jpg" style="background-size: cover; background-repeat: no-repeat;  " width="400" height="400px">
+                      </picture> 
+                     
+                      <h3 class="card__title" style="margin-left: 10px;  font-weight: 900;">junior class</h3>
+                      
+                      <div class="card__duration" style="margin-left: 10px; font-size: 20px;" >
+                        <p style="color: black;font-weight: 500;"><br>1to8<br><br></p>
+                      </div>
+                      </article></a></div>
+                      <div class="card-wrapper" >
+                        <a href="coursespecial.html" target="_blank" style="text-decoration: none; color: black; ">  <article class="card">
+                      <picture class="card__background">
+                        <img src="img3.jpg" style="background-size: cover; background-repeat: no-repeat;  " width="400" height="400px">
+                      </picture> 
+                     
+                      <h3 class="card__title" style="margin-left: 10px;  font-weight: 900;">test prepration</h3>
+                      
+                      <div class="card__duration" style="margin-left: 10px; font-size: 20px;" >
+                        <p style="color: black;font-weight: 500;"> E-CAT <br> M-CAT <br><br></p>
+                      </div>
+                      </article></a></div>
+                  </div>
+                </div>
+            
+                </div>
+              </div>
+        </div>
+
+
+        
+        <style>
+            .page[data-modal-state="open"] {
+      overflow: hidden;
+    }
+    
+    .card-slider {
+      display: flex;
+      flex-wrap: nowrap;
+      /* overflow-x: scroll; */
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      /* background-color: #1abc9c; */
+    }
+    
+    .card-wrapper {
+      flex-shrink: 0;
+      width: calc(100% - 2rem);
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.2s ease-in-out;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card:hover {
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.636);
+    }
+    
+    .card__background {
+      display: block;
+      width: 50%;
+      height: 0;
+      padding-bottom: 66.666%;
+      background-position: center;
+      background-size: cover;
+    
+    }
+    
+    .card__category {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background-color: #007bff;
+      border-radius: 0.25rem;
+      text-transform: uppercase;
+    }
+    
+    .card__title {
+      margin-top: auto;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    
+    .card__duration {
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      color: #6c757d;
+    }
+    
+    .overlay {
+      position: fixed;
+      z-index: 9998;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      pointer-events: none;
+    }
+    
+    .modal-wrapper {
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+    }
+    
+    .modal {
+      position: relative;
+      width: 90%;
+      max-width: 36rem;
+      margin: auto;
+      border-radius: 0.75rem;
+      background-color: #fff;
+      overflow: hidden;
+      pointer-events: all;
+    }
+    
+    .modal__close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0;
+      font-size: 2rem;
+      color: #6c757d;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .modal__scroll-area {
+      position: relative;
+      max-height: calc(100vh - 10rem);
+      overflow-y: auto;
+      padding: 2rem;
+    }
+    
+    .modal__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .modal__title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .modal__body {
+      margin-bottom: 2rem;
+    }
+    
+    .modal__footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    
+    .modal__button {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+    
+    .modal__button:hover {
+      background-color: #0069d9;
+    }
+    /* @media (max-width: 768px) {
+  .card-slider {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: auto;
+  }
+  
+  .card-wrapper {
+    width: calc(50% - 1rem);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+} */
+
+/* @media (max-width: 767px) { */
+  /* Center card slider on smaller screens */
+  /* .card-slider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+} */
+
+/* @media (min-width: 768px) { */
+  /* Align card slider to the left on larger screens */
+  /* .card-slider {
+    margin-left: 0;
+    margin-right: auto;
+  }
+} */
+
+    @media screen and (max-width: 576px) {
+     
+      .modal {
+        width: 100%;
+        border-radius: 0;
+        margin: 0;
+        max-height: 100vh;
+      }
+      
+      .modal__close-button {
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+      
+      .modal__scroll-area {
+        padding: 1rem;
+      }
+    }
+    
+    
+          </style>
+          
+      </section>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+      <script type="text/javascript">
+        jQuery('.card-slider').slick({
+  slidesToShow:3,
+  autoplay: true,
+  slidesToScroll:1,
+  dots: false,
+  responsive:[
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
+let cards = document.querySelectorAll('.card');
+let card;
+let modal = document.querySelector('.modal');
+let closeButton = document.querySelector('.modal__close-button');
+let page = document.querySelector('.page');
+const cardBorderRadius = 20;
+const openingDuration = 600; //ms
+const closingDuration = 600; //ms
+const timingFunction = 'cubic-bezier(.76,.01,.65,1.38)';
+
+var Scrollbar = window.Scrollbar;
+Scrollbar.init(document.querySelector('.modal__scroll-area'));
+
+
+function flipAnimation(first, last, options) {
+  let firstRect = first.getBoundingClientRect();
+  let lastRect = last.getBoundingClientRect();
+  
+  let deltas = {
+    top: firstRect.top - lastRect.top,
+    left: firstRect.left - lastRect.left,
+    width: firstRect.width / lastRect.width,
+    height: firstRect.height / lastRect.height
+  };
+  
+  return last.animate([{
+    transformOrigin: 'top left',
+    borderRadius:`
+    ${cardBorderRadius/deltas.width}px / ${cardBorderRadius/deltas.height}px`,
+    transform: `
+      translate(${deltas.left}px, ${deltas.top}px) 
+      scale(${deltas.width}, ${deltas.height})
+    `
+  },{
+    transformOrigin: 'top left',
+    transform: 'none',
+    borderRadius: `${cardBorderRadius}px`
+  }],options);
+}
+
+cards.forEach((item)=>{
+  item.addEventListener('click',(e)=>{
+    jQuery('.card-slider').slick('slickPause');
+    card = e.currentTarget;
+    page.dataset.modalState = 'opening';
+    card.classList.add('card--opened');
+    card.style.opacity = 0;
+    document.querySelector('body').classList.add('no-scroll');
+
+    let animation = flipAnimation(card,modal,{
+      duration: openingDuration,
+      easing: timingFunction,
+      fill:'both'
+    });
+
+    animation.onfinish = ()=>{
+      page.dataset.modalState = 'open';
+      animation.cancel();
+    };
+  });
+});
+
+closeButton.addEventListener('click',(e)=>{
+  page.dataset.modalState = 'closing';
+  document.querySelector('body').classList.remove('no-scroll');
+  
+  let animation = flipAnimation(card,modal,{
+    duration: closingDuration,
+    easing: timingFunction,
+    direction: 'reverse',
+    fill:'both'
+  });
+
+  animation.onfinish = ()=>{
+    page.dataset.modalState = 'closed';
+    card.style.opacity = 1;
+    card.classList.remove('card--opened');
+    jQuery('.card-slider').slick('slickPlay');
+    animation.cancel();
+  };
+});
+      </script>
+      <section id="teach" class="test-prepraration1" style="padding-top: 100px;">
+        <h1 style="text-align: center; font-size: 30px;">TEACHERS</h1>
+        <div class="test-preparation">
+          <div class="card111">
+               <div class="imgbox111">
+                 <img  src="test-preparation.png" alt="">
+               </div>
+               <div class="content111">
+                 <h3>lorem</h3>
+                 <h4 class="price">date<small>/time<small></h4>
+                 <a href="teachergallery.html" class="buy">explore</a>
+               </div>
+             </div>
+             <div class="card111">
+               <div class="imgbox111">
+                 <img  src="test-preparation.png" alt="">
+               </div>
+               <div class="content111">
+                 <h3 style="font-size: 30px;">lorem</h3>
+                 <h4 class="price" style="font-size: 24px;">date<small>/time<small></h4>
+                   <a id="testimonial" href="teachergallery.html" class="buy">explore</a>
+               </div>
+               
+             </div>
+                   
+           </div> 
+           <div style="margin-left: 46.8vw;">
+            <button>
+             <a  href="teachergallery.html" style="text-decoration: none; color: white;"> <span>Explore</span></a>
+            </button>
+                  </div>
+                  <style>
+                    button {
+ display: inline-block;
+ border-radius: 4px;
+ background-color: #3d405b;
+ border: none;
+ color: #FFFFFF;
+ text-align: center;
+ font-size: 17px;
+ padding: 16px;
+ width: 130px;
+ transition: all 0.5s;
+ cursor: pointer;
+ margin: 5px;
+}
+
+button span {
+ cursor: pointer;
+ display: inline-block;
+ position: relative;
+ transition: 0.5s;
+}
+
+button span:after {
+ content: 'more';
+ position: absolute;
+ opacity: 0;
+ top: 0;
+ right: -10px;
+ transition: 0.5s;
+}
+
+button:hover span {
+ padding-right: 45px;
+}
+
+button:hover span:after {
+ opacity: 1;
+ right: 0;
+}
+                  </style>
+<style>
+     @media screen and (max-width: 768px) {
+  .test-preparation {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card111 {
+    width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+
+.test-preparation{
+  padding-top: 100px;
+  background-color: #1abc9c;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    flex-wrap: wrap;
+   
+}
+.card111 {
+    border: 1px solid black;
+  position: relative;
+  width: 400px;
+  height: 580px;
+  background: #000;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.card111::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transform: skewY(345deg);
+  transition: 1s;
+}
+.card111::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 8em;
+  text-align: center;
+  padding-left: 20px;
+  top: 300px;
+  letter-spacing: 20px;
+  font-family: "Staatliches", cursive;
+}
+.card111:hover::before {
+  transform: skewY(390deg);
+}
+.card111 .imgbox111 {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: -1; */
+}
+.card111 .imgbox111 img {
+  width: 100%;
+  transition: 1s;
+}
+.card111:hover .imgbox111 img {
+  width: 80%;
+}
+.card111 .content111 {
+  position: relative;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+}
+.card111 .content111 h3 {
+  color: #ff4d4d;
+  font-size: 2em;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  margin-bottom: 5px;
+}
+.card111 .content111 .price {
+  font-size: 1.4em;
+  padding-bottom: -10px;
+  letter-spacing: 3px;
+}
+.card111 .content111 .buy {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.4em;
+  padding: 10px;
+  background: #ff4d4d;
+  border-radius: 20px;
+  letter-spacing: 2px;
+ 
+}
+@media screen and (max-width: 414px) {
+  .test-preparation {
+    padding-top: 50px;
+  }
+  
+  .card111 {
+    width: 90%;
+    height: auto;
+  }
+  
+  .card111::after {
+    font-size: 6em;
+    top: 250px;
+  }
+  
+  .card111 .content111 h3 {
+    font-size: 1.5em;
+  }
+  
+  .card111 .content111 .price {
+    font-size: 1.2em;
+  }
+  
+  .card111 .content111 .buy {
+    font-size: 1.2em;
+    padding: 8px;
+  }
+  
+  button {
+    font-size: 14px;
+    padding: 12px;
+    width: 110px;
+  }
+  
+}
+@media only screen and (max-width: 767px) {
+  .test-preparation {
+    padding-top: 50px;
+  }
+  
+  .card111 {
+    width: 90%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .card111::after {
+    font-size: 4em;
+    top: 50%;
+  }
+}
+</style>
+      </section>
+
+
+<section id="testimonial">
+  <div class="testimonail"> 
+    <h1 style="margin-left: 23vw; font-size: 30px; padding-top: 20px; padding-bottom: 20px;">What over student says </h1>
+<style>
+ @media screen and (max-width: 414px) {
+  .testimonial h1 {
+   font-size: 30px;
+  }
+}
+</style>
+    <figure class="snip1579"><img src="test-preparation.png" alt="profile-sample2"/>
+        <figcaption>
+          <h3>Sue Shei</h3>
+          <h5>Founder</h5>
+          <blockquote>
+            <p>'Which is worse, that everyone has his price, or that the price is always so low.'</p>
+          </blockquote>
+        </figcaption><a href="#"></a>
+      </figure>
+      <figure class="snip1579 hover"><img src="test-preparation.png" alt="profile-sample7"/>
+        <figcaption>
+          <h3>Indigo Violet</h3>
+          <h5>Web Designer</h5>
+          <blockquote>
+            <p>'I'm killing time while I wait for life to shower me with meaning and happiness.'</p>
+          </blockquote>
+        </figcaption><a href="#"></a>
+      </figure>
+      <figure class="snip1579"><img src="test-preparation.png" alt="profile-sample6"/>
+        <figcaption>
+          <h3>Will Barrow</h3>
+          <h5>Public Relations</h5>
+          <blockquote>
+            <p>'The only skills I have the patience to learn are those that have no real application in life.'</p>
+          </blockquote>
+        </figcaption><a href="#"></a>
+      </figure>
+      <div style="margin-left: 29vw;">
+        <button>
+          <a style="text-decoration: none; color: white;" href="student.html"><span>Explore</span></a>
+        </button>
+              </div>
+    </div>
+      <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato);
+    @import url(https://fonts.googleapis.com/css?family=Oswald);
+    @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+    @media screen and (max-width: 767px) {
+      .snip1579 {
+        max-width: none;
+        width: auto;
+      }
+    }
+    .snip1579 {
+      font-family: 'Lato', Arial, sans-serif;
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      margin: 10px;
+      min-width: 250px;
+      max-width: 310px;
+      width: 100%;
+      background-color: #1abc9c;
+      color: black;
+      text-align: left;
+      font-size: 16px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    }
+    .testimonail{
+        margin-left: 18vw;
+    }
+    .snip1579 * {
+      -webkit-transition: all 0.35s;
+      transition: all 0.35s;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .snip1579 img {
+      max-width: 100%;
+      vertical-align: top;
+    }
+    .snip1579 figcaption {
+      position: absolute;
+      height: 75px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      overflow: hidden;
+      padding: 15px;
+      background-color: rgba(26, 24, 24, 0.755);
+    }
+    .snip1579 h3 {
+      font-family: 'Oswald';
+      text-transform: uppercase;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 24px;
+      margin: 3px 0;
+      color: aliceblue;
+    }
+    .snip1579 h5 {
+      font-weight: 400;
+      margin: 0;
+      text-transform: uppercase;
+      color: #cccaca;
+      letter-spacing: 1px;
+    }
+    .snip1579 blockquote {
+      padding: 0;
+      margin: 0;
+      font-style: italic;
+      font-size: 1em;
+      color: aliceblue;
+    }
+    .snip1579 a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    .snip1579:hover figcaption,
+    .snip1579.hover figcaption {
+      height: calc(85%);
+    }
+    
+    
+      </style>
+      <script>
+        /* Demo purposes only */
+    $(".hover").mouseleave(
+      function () {
+        $(this).removeClass("hover");
+      }
+    );
+    
+      </script>
+</section>
+<div class="ttt">
+  <h1 style="margin-left: 46.8vw; font-size: 30px; padding-top: 20px; padding-bottom: 20px;">COURSES </h1>
+
+</div>
+<!-- <style>
+   @media screen and (max-width: 414px) {
+  .ttt h1 {
+   margin-left: -10vw;
+   font-size: 40px;
+  }
+}
+</style> -->
+<section id="feature" class="section-p1">
+  
+  <div class="fe-box">
+      <img src="f1.jpg.jpg" alt="">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi.</p>
+      <h6> <button>
+        <span>Explore</span>
+      </button></h6>
+  </div>
+  <div class="fe-box">
+      <img src="f2.jpg.jpg" alt="">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi.</p>
+
+      <h6> <button>
+        <span>Explore</span>
+      </button>/h6>
+  </div>
+  <div class="fe-box">
+      <img src="f3.jpg.jpg" alt="">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi.</p>
+
+      <h6> <button>
+        <span>Explore</span>
+      </button></h6>
+  </div>
+  <div class="fe-box">
+      <img src="f4.jpg.jpg" alt="">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi.</p>
+
+      <h6> <button>
+        <span>Explore</span>
+      </button></h6>
+  </div>
+ 
+</section>
+<div style="margin-left: 48.8vw;">
+  <button>
+    <span>Explore</span>
+  </button>
+        </div>
+<style>
+  #feature{
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+flex-wrap: wrap;
+}
+#feature .fe-box{
+width: 180px;
+text-align: center;
+padding: 25px 15px;
+/* box-shadow: 20px 20px 34px rgba(0, 0, 0,0.03); */
+border-radius:4px ;
+margin: 15px 0;
+transition: all 0.5s;
+}
+#feature .fe-box:hover{
+box-shadow: 10px 10px 54px rgba(70, 62, 222,0.1);
+
+}
+#feature .fe-box img{
+width: 100%;
+margin-bottom: 10px;
+}
+#feature .fe-box h6{
+display: inline-flex;
+padding: 9px 8px 6px 8px;
+line-height: 1;
+border-radius: 4px;
+color: #088178;
+background-color: #fddde4;
+}
+#feature .fe-box:nth-child(2) h6 {
+background-color:#cdebbc;
+
+}
+#feature .fe-box:nth-child(3) h6 {
+background-color:#d1e8f2;
+
+}
+#feature .fe-box:nth-child(4) h6 {
+background-color:#cdd4f8;
+
+}
+#feature .fe-box:nth-child(5) h6 {
+background: color #f6dbf6;;
+
+}
+#feature .fe-box:nth-child(6) h6 {
+background-color:#fff2e5;
+
+}
+</style>
+
+
+<section id="banner" class="section-m1">
+  <h2>discount offers</h2>
+  <h2>upto <span> 70% off</span>  at .
+  </h2>
+  <button >
+    Check Out! 
+  </button>
+</section>
+<style>
+  #banner{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+background-image: url(back.jpg);
+width: 100%;
+height: 40vh;
+background-size: cover;
+background-position: center;
+
+}
+#banner h4{
+color: white;
+font-size: 16px;
+}
+
+#banner h2{
+color: white;
+font-size: 30px;
+padding: 10px 0;
+
+
+}
+#banner h2 span{
+color: #ef3636;
+
+}
+#banner button:hover{
+background: #088178;
+color: white;
+}
+@media (max-width: 576px) {
+  #banner h2 {
+    font-size: 24px;
+  }
+  #banner button {
+    font-size: 14px;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  #banner h2 {
+    font-size: 26px;
+  }
+  #banner button {
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  #banner h2 {
+    font-size: 28px;
+  }
+  #banner button {
+    font-size: 18px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  #banner h2 {
+    font-size: 32px;
+  }
+  #banner button {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  #banner h2 {
+    font-size: 36px;
+  }
+  #banner button {
+    font-size: 22px;
+  }
+}
+
+</style>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <h3>About Us</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna quis dolor gravida ullamcorper. Donec vitae nisl a lorem faucibus fringilla.</p>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Courses</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <h3>Contact Us</h3>
+        <p>123 Main St, City</p>
+        <p>Phone: +1234567890</p>
+        <p>Email:<a href="mailto:syedaliahsan2002@gmail.com" style="text-decoration: none; color: #101010;"></i>syedaliahsan2002gmail.com</a>
+        </p>
+        
+      </div>
+      
+    </div>
+    <div class="social-media-icons">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+      <ul class="social-ul">
+        <li class="socail-li">
+          <a href="#">
+            <i class="fab fa-facebook-f icon"></i>    </a>
+        </li>
+        <li class="socail-li">
+          <a href="#"><i class="fab fa-twitter icon"></i></a>
+        </li>
+        <li class="socail-li">
+          <a href="#"><i class="fab fa-linkedin-in icon"></i></a></li>
+        <li>
+          <a href="#"><i class="fab fa-google-plus-g icon"></i></a></li>
+      </ul>
+                               
+  </div>
+  </div>
+  <div class="copy">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <p>&copy; 2023 Educational Institute. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+<style>
+  footer {
+      background-color: #f1f1f1;
+      padding: 50px 0;
+  }
+
+  .container {
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+
+  h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+  }
+
+  p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #666;
+  }
+
+  ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+  }
+
+  ul li {
+      margin-bottom: 10px;
+  }
+
+  ul li a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1rem;
+  }
+  ul li a:hover{
+    color: #1abc9c;
+    transition: all 0.5s ;
+  }
+  .copy {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+  }
+
+  .copy p {
+      margin: 0;
+      color: #cccaca;
+  }
+
+  .social-ul {
+      display: flex;
+      position: relative;
+      margin-top: 50px;
+      margin-left: 23.9vw;
+      transform: translate(-50%, -50%);
+  }
+
+  .social-ul li {
+      list-style: none;
+  }
+
+  .social-ul li a {
+      width: 55px;
+      height: 55px;
+      background-color: #fff;
+      text-align: center;
+      line-height: 80px;
+      font-size: 35px;
+      margin: 0 10px;
+      display: block;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      border: 3px solid #fff;
+      z-index: 1;
+  }
+
+  .social-ul li a .icon {
+      position: relative;
+      color: #262626;
+      transition: .5s;
+      z-index: 3;
+  }
+
+  .social-ul li a:hover .icon {
+      color: #fff;
+      transform: rotateY(360deg);
+  }
+
+  .social-ul li a:before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #f00;
+      transition: .5s;
+      z-index: 2;
+  }
+
+  .social-ul li a:hover:before {
+      top: 0;
+  }
+
+  .social-ul li:nth-child(1) a:before{
+      background: #3b5999;
+  }
+
+  .social-ul li:nth-child(2) a:before{
+      background: #55acee;
+  }
+
+  .social-ul li:nth-child(3) a:before{
+      background: #0077b5;
+  }
+
+  .social-ul li:nth-child(4) a:before{
+      background: #dd4b39;
+  }
+
+  /* Media Queries */
+
+  @media only screen and (max-width: 767px) {
+.container {
+  max-width: 90%;
+}
+
+/* .social-ul {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.social-ul li a {
+  width: 40px;
+  height: 40px;
+  line-height: 60px;
+  font-size: 25px;
+  margin: 0 5px;
+  border: 2px solid #fff;
+}
+
+.social-ul li a .icon {
+  font-size: 20px;
+}
+}
+</style>
+
+<section class="www">
+            
+<!-- whatsapp -->
+
+
+<div id='chat-box'>
+  <div id='chat-top'>Need HELP? <span id='chat-top-right'><svg id='close-box' xmlns="http://www.w3.org/2000/svg"
+              width="20" height="20" viewBox="0 0 48 48">
+              <path
+                  d="M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z"
+                  fill='#fff' />
+          </svg></span>
+      <div class='clear'></div>
+  </div>
+  <div id='chat-msg'>
+      <p>We Are expert in Web Design and Technical SEO</p>
+      <div id='chat-form'>
+          <div class='chat-in'>
+              <input type='text' id='whats-in' Placeholder='Send Your Message...' />
+          </div>
+          <div id='send-btn'><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 48 48">
+                  <path d="M4.02 42L46 24 4.02 6 4 20l30 4-30 4z" fill='rgb(18, 140, 126)' />
+              </svg></div>
+      </div>
+  </div>
+</div>
+<div id='whats-chat'>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1" width="35" height="35" viewBox="0 0 90 90">
+      <path
+          d="M90 44a44 44 0 0 1-66 38L0 90l8-24A44 44 0 0 1 46 0c24 0 44 20 44 44zM46 7C25 7 9 24 9 44c0 8 2 15 7 21l-5 14 14-4a37 37 0 0 0 58-31C83 24 66 7 46 7zm22 47l-2-1-7-4-3 1-3 4h-3c-1 0-4-1-8-5-3-3-6-6-6-8v-2l2-2 1-1v-2l-4-8c0-2-1-2-2-2h-2l-3 1c-1 1-4 4-4 9s4 11 5 11c0 1 7 12 18 16 11 5 11 3 13 3s7-2 7-5l1-5z"
+          fill="#FFF" />
+  </svg>
+</div>
+<style>
+  @media only screen and (max-width: 414px){
+    #whats-chat {
+      display: none;
+    }
+    #chat-box {
+      display: none;
+    }
+    #chat-top {
+      display: none;
+    }
+    #chat-msg {
+      display: none;
+    }
+    #chat-form{
+      display: none;
+    }
+  }
+
+  #whats-chat {
+      position: fixed;
+      right: 6%;
+      bottom: 10%;
+      height: auto;
+      width: auto;
+      background: #25D366;
+      padding: 12.5px;
+      border-radius: 50px;
+      z-index: 1;
+  }
+  
+
+  #whats-chat:hover {
+      cursor: pointer;
+      box-shadow: 2px 2px 15px #ccc;
+      bottom: 11%;
+      z-index: 1;
+  }
+   /* =============================== */
+  #chat-box {
+      position: fixed;
+      right: -500px;
+      bottom: 18%;
+      width: 250px;
+      height: 200px;
+      transition: all .5s;
+      z-index: 10;
+
+  }
+
+  #chat-top {
+      width: 100%;
+      line-height: 2;
+      background: rgb(18, 140, 126);
+      color: white;
+      text-align: center;
+      border-radius: 5px 5px 0 0;
+      padding: 0 10px;
+  }
+
+  #chat-msg {
+      background: #ece5dd;
+      padding: 10px;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 0 25px -10px #999;
+  }
+
+  #chat-msg p {
+      font-size: 14px;
+      padding: 5px;
+      background: white;
+      border-radius: 0 50px 50px 50px;
+      margin-bottom: 10px;
+  }
+
+  #chat-form {
+      display: flex;
+  }
+
+  .chat-in {
+      width: 80%;
+  }
+
+  #chat-form input {
+      border-radius: 5px 0 5px 5px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      padding: 5px;
+      line-height: 2;
+  }
+
+  #send-btn {
+      width: 20%;
+      padding: 0 5px;
+  }
+
+  #chat-top-right {
+      float: right;
+      padding: 5px 0;
+  }
+
+  #chat-box:after {
+      content: '';
+      position: absolute;
+      top: 58%;
+      left: 90%;
+      width: 0;
+      height: 0;
+      border-top: 25px solid transparent;
+      border-bottom: 25px solid transparent;
+
+      border-right: 25px solid #ece5dd;
+  }
+
+  .right {
+      float: right
+  }
+
+  .clear {
+      clear: both
+  } 
+</style>
+<script>
+  document.getElementById('whats-chat').addEventListener("mouseover", showchatbox);
+  document.getElementById('chat-top-right').addEventListener("click", closechatbox);
+  document.getElementById('send-btn').addEventListener("click", sendmsg);
+  window.addEventListener("load", showchatboxtime);
+  function showchatbox() {
+      document.getElementById('chat-box').style.right = '8%'
+  }
+  function closechatbox() {
+      document.getElementById('chat-box').style.right = '-500px'
+
+
+  }
+  function showchatboxtime() {
+      setTimeout(launchbox, 5000)
+  }
+  function launchbox() {
+      document.getElementById('chat-box').style.right = '8%'
+
+  }
+  function sendmsg() {
+      var msg = document.getElementById('whats-in').value;
+      var relmsg = msg.replace(/ /g, "%20");
+      window.open('https://api.whatsapp.com/send?phone==923308155168&text=' + relmsg, '_blank');
+
+  }
+
+
+  // function sendmsg() {
+  //     // var msg = document.getElementById('whats-in').value;
+  //     // var relmsg = msg.replace(/ /g, "%20");
+  //     window.open('https://api.whatsapp.com/send?phone=923308155168&text=_blank');
+
+  // }
+
+
+  
+</script>
+</section>
+
+</body>
+</html>
